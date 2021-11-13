@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class AnimalController extends Controller
 {
     # property animals
-    private array $animals = array(
-            array('name' => 'kucing', 'gender' => 'female'),
-            array('name' => 'sapi', 'gender' => 'male'),
-    );
+    private $animals = [
+        'name' => 'kucing',
+        'gender' => 'female'
+    ];
 
     # method index - show data animals
     public function index(): array
