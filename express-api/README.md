@@ -1,0 +1,1 @@
+run this project `npm run dev` you can check in port `http://localhost:3000`
