@@ -32,8 +32,21 @@ class StudentController extends Controller
         }
     }
 
-    public function create(Request $request) {}
-    public function update(Request $request, $id) {
+    public function store(Request $request) {
+        $input = [
+            'nama' => $request->nama,
+            'nim' => $request->nim,
+            'email' => $request->email,
+            'jurusan' => $request->jurusan,
+        ];
+        $data = Student::create($input);
+        $messageResponse = [
+            'message' => 'Student is created successfully',
+            'data' => $data,
+        ];
+        return response()->json($messageResponse, 201);
+    }
+    public function updateStudent(Request $request, $id) {
         $nama = $request->nama;
         $nim = $request->nim;
         $jurusan = $request->jurusan;
@@ -41,12 +54,12 @@ class StudentController extends Controller
 
         $data = Student::find($id);
 
-        $data->update([
-            'nama' => ($nama != null) ? $nama : $data->nama,
-            'nim' => ($nim != null) ? $nim : $data->nim,
-            'email' => ($email != null) ? $email : $data->email,
-            'jurusan' => ($jurusan != null) ? $jurusan : $data->jurusan
-        ]);
+//        $data->update([
+//            'nama' => ($nama != null) ? $nama : $data->nama,
+//            'nim' => ($nim != null) ? $nim : $data->nim,
+//            'email' => ($email != null) ? $email : $data->email,
+//            'jurusan' => ($jurusan != null) ? $jurusan : $data->jurusan
+//        ]);
 
         if ($data) {
             $data->update([

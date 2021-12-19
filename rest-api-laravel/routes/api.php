@@ -28,6 +28,6 @@ Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
 
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/students/{id}', [StudentController::class, 'show']);
-Route::post('/students', [StudentController::class, 'create']);
-Route::put('/students/{id}', [StudentController::class, 'update']);
+Route::post('/students', [StudentController::class, 'store']);
+Route::put('/students/{id}', [StudentController::class, 'updateStudent']);
 Route::delete('/students/{id}', [StudentController::class, 'destroy']);
